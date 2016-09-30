@@ -44,7 +44,7 @@ cpan Mojolicious
 perl server.pl
 ```
 
-And visit <http://localhost:3000/>. Try opening multiple tabs!
+And visit <http://localhost:3002/>. Try opening multiple tabs!
 
 ## Changing the port
 
