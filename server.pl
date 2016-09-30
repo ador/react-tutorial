@@ -34,5 +34,5 @@ any [qw(GET POST)] => '/api/comments' => sub {
   }
   $self->render(json => $comments);
 };
-my $port = $ENV{PORT} || 3000;
+my $port = $ENV{PORT} || 3002;
 app->start('daemon', '-l', "http://*:$port");

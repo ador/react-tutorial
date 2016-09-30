@@ -103,7 +103,7 @@ func handleComments(w http.ResponseWriter, r *http.Request) {
 func main() {
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "3000"
+		port = "3002"
 	}
 	http.HandleFunc("/api/comments", handleComments)
 	http.Handle("/", http.FileServer(http.Dir("./public")))
