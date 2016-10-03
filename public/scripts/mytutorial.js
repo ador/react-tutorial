@@ -1,13 +1,21 @@
 
 // https://facebook.github.io/react/docs/tutorial.html
 
+var data = [
+  {id: 1, author: "Johanna", text: "This is one comment"},
+  {id: 2, author: "Mr. Walker", text: "This is *another* comment"},
+  {id: 3, author: "Lilly", text: "Trallala"},
+  {id: 4, author: "Angie", text: "I think..."}
+];
+
+
 var CommentBox = React.createClass({
   render: function() {
     return (
       <div className="myCommentBox">
         Hello, world! I am a CommentBox.
         <h1>Comments</h1>
-        <CommentList />
+        <CommentList data={this.props.data} />
         <CommentForm />
         </div>
     );
@@ -16,12 +24,16 @@ var CommentBox = React.createClass({
 
 var CommentList = React.createClass({
   render: function() {
+    var commentNodes = this.props.data.map(function(comment) {
+      return (
+        <Comment author={comment.author} key={comment.id}>
+          {comment.text}
+        </Comment>
+      );
+    });
     return (
       <div className="commentList">
-        <b>Hello, world! I am a CommentList.</b>
-        <Comment author="Pete Hunt">This is one comment</Comment>
-        <Comment author="Jordan Walke">This is *another* comment</Comment>
-        <b>This is the end of CommentList.</b>
+        {commentNodes}
       </div>
     );
   }
@@ -57,7 +69,7 @@ var Comment = React.createClass({
 });
 
 ReactDOM.render(
-  <CommentBox />,
+  <CommentBox data={data} />,
   document.getElementById('content')
 );
 
